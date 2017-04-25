@@ -25,6 +25,7 @@ namespace laba5
         }
         static void Main(string[] args)
         {
+            Console.WriteLine("Первая программа");
             Dictionary<int, long> map = new Dictionary<int, long>();
             map.Add(1, 2345);
             map.Add(2, 456);
@@ -55,19 +56,24 @@ namespace laba5
             list.Add(new laba5.Min(7));
             list.Add(new laba5.Min(10));
             list.Sort(new MinComparer());
+            Console.WriteLine("Первый список(отсортированный): ");
             PrintCollection(list);
             var temp = from q in list
                        where (q.Value > 5)
                        select q;
+            Console.WriteLine("Первый список с учетом условия: ");
             PrintCollection(temp);
             List<Min> list2 = new List<Min>();
             list2.AddRange(temp);
+            Console.WriteLine("Второй список: ");
             PrintCollection(list2);
             list.Sort();
             list2.Sort();
+            Console.WriteLine("Отсортированные списки: ");
             PrintCollection(list);
             PrintCollection(list2);
             var e = list.Union(list2);
+            Console.WriteLine("Слияние: ");
             PrintCollection(e);
             Console.WriteLine("Удовлетворяют условию {0} ",e.Where(s=>s.Value>5).Count());
 
